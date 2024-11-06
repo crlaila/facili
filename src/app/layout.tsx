@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
+import Header from './components/Header';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -10,13 +11,15 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: 'Facili Saúde',
-  description: 'Consulte pagando apenas R$ 21,90 em mais de 21 especialidades',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-br" className={poppins.className}>
-      <body>{children}</body>
+    <html lang="pt-br">
+      <body className={poppins.className}>
+        <Header />
+        <main>{children}</main>
+      </body>
     </html>
   );
 }
